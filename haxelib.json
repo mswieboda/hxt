@@ -1,0 +1,15 @@
+{
+  "name": "hxt",
+  "url": "http://github.com/mswieboda/hxt",
+  "license": "MIT",
+  "description": "heaps extensions",
+  "version": "0.0.1",
+  "classPath": "src/",
+  "releasenote": "Initial release",
+  "contributors": [
+    "mswieboda"
+  ],
+  "dependencies": {
+    "heaps": ""
+  }
+}
