@@ -1,4 +1,3 @@
-import hxt.input.GamePad;
 import hxt.scene.Stage;
 import hxt.scene.Scene;
 
@@ -9,10 +8,8 @@ class Main extends App {
   var stage : Stage;
 
   override function init() {
-    GamePad.init();
-
     stage = new Stage(s2d, s3d);
-    stage.changeScene(new Scene(stage));
+    stage.changeScene(new MenuScene(stage));
   }
 
   override function update(dt: Float) {
