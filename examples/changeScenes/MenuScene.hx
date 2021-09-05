@@ -24,7 +24,7 @@ class MenuScene extends Scene {
     menu.y = s2d.height / 3;
   }
 
-  public override function update(dt: Float) {
+  public override function update(dt : Float) {
     menu.update(dt);
 
     if (Input.menu.isPressed("exit")) {

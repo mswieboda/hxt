@@ -12,7 +12,7 @@ class Main extends App {
     stage.changeScene(new MenuScene(stage));
   }
 
-  override function update(dt: Float) {
+  override function update(dt : Float) {
     stage.update(dt);
   }
 
