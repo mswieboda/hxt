@@ -16,3 +16,15 @@ class Input {
     return GamePad.pad;
   }
 }
+
+// example of how to use above Input class:
+// package yourgame.input;
+
+// class Input {
+//   public static inline var game = yourgame.input.GameInput;
+//   public static inline var menu = yourgame.input.MenuInput;
+
+//   public static function init() {
+//     hxt.input.Input.init();
+//   }
+// }

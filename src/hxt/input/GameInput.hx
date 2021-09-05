@@ -1,7 +1,6 @@
 package hxt.input;
 
-import hxd.Key;
-
+// This is an example of how to use MappingInput
 class GameInput extends MappingInput {
   public static var INPUT_MAP : Map<String, Map<String, Array<String>>> = [
     "moveLeft" => [
