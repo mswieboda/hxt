@@ -5,7 +5,6 @@ import hxt.scene.Scene;
 import h2d.Graphics;
 import h2d.Tile;
 import h2d.Bitmap;
-import h3d.Vector;
 import hxd.App;
 import hxd.Res;
 import hxd.System;

@@ -1,0 +1,5 @@
+-cp .
+-lib hxt
+-lib hlsdl
+-hl main.hl
+-main Main
