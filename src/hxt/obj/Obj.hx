@@ -34,7 +34,7 @@ class Obj extends Object {
     return collider.collided(obj.collider);
   }
 
-  public function triggered(obj : Object) : Bool {
+  public function triggered(obj : Obj) : Bool {
     if (trigger == null || obj.collider == null) return false;
 
     return trigger.collided(obj.collider);
