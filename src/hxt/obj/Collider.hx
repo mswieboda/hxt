@@ -5,11 +5,11 @@ import h3d.mat.BlendMode;
 import h3d.scene.Object;
 
 class Collider extends BoxMesh {
-  public function new(model : Object, size : Vector, ?parent : Object) {
+  public function new(size : Vector, ?parent : Object, color = 0x33cc0000) {
     super(size, parent);
 
     #if debug
-    material.color.setColor(0x33cc0000);
+    material.color.setColor(color);
     material.blendMode = BlendMode.Alpha;
     material.shadows = false;
     #else

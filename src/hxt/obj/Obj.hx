@@ -4,7 +4,6 @@ import h3d.Vector;
 import h3d.mat.BlendMode;
 import h3d.scene.Object;
 
-
 class Obj extends Object {
   public var collider : Collider;
 
@@ -21,7 +20,7 @@ class Obj extends Object {
     addChild(model);
 
     if (colliderSize != null)
-      collider = new Collider(model, colliderSize, this);
+      collider = new Collider(colliderSize, this);
 
     if (triggerSize != null)
       trigger = new Trigger(triggerSize, this);
@@ -38,6 +37,6 @@ class Obj extends Object {
   public function triggered(obj : Object) : Bool {
     if (trigger == null || obj.collider == null) return false;
 
-    return trigger.triggered(obj.collider);
+    return trigger.collided(obj.collider);
   }
 }
