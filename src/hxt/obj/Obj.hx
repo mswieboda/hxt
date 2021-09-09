@@ -14,15 +14,14 @@ class Obj extends Object {
     model : Object,
     ?colliderSize : Vector,
     ?triggerSize : Vector,
-    ?parent : Object,
-    colliderScale = true
+    ?parent : Object
   ) {
     super(parent);
 
     addChild(model);
 
     if (colliderSize != null)
-      collider = new Collider(model, colliderSize, this, colliderScale);
+      collider = new Collider(model, colliderSize, this);
 
     if (triggerSize != null)
       trigger = new Trigger(triggerSize, this);

@@ -5,16 +5,7 @@ import h3d.mat.BlendMode;
 import h3d.scene.Object;
 
 class Collider extends BoxMesh {
-  public function new(model : Object, size : Vector, ?parent : Object, sizeScale = true) {
-    if (sizeScale) {
-      var bounds = model.getBounds();
-      size = new Vector(
-        bounds.xSize + model.scaleX * size.x,
-        bounds.ySize + model.scaleY * size.y,
-        bounds.zSize + model.scaleZ * size.z
-      );
-    }
-
+  public function new(model : Object, size : Vector, ?parent : Object) {
     super(size, parent);
 
     #if debug
@@ -24,6 +15,16 @@ class Collider extends BoxMesh {
     #else
     visible = false;
     #end
+  }
+
+  public static function scaleSize(model : Object, scale : Vector) : Vector {
+    var bounds = model.getBounds();
+
+    return new Vector(
+      bounds.xSize + model.scaleX * scale.x,
+      bounds.ySize + model.scaleY * scale.y,
+      bounds.zSize + model.scaleZ * scale.z
+    );
   }
 
   public function collided(object : Object) : Bool {
