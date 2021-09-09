@@ -1,16 +1,19 @@
 package hxt.obj;
 
+import h3d.Vector;
 import h3d.mat.BlendMode;
 import h3d.scene.Object;
 
 class Collider extends BoxMesh {
-  public function new(model : Object, colliderScales : Scales, ?parent : Object) {
-    var bounds = model.getBounds();
-    var size = {
-      x: bounds.xSize + model.scaleX * colliderScales.x,
-      y: bounds.ySize + model.scaleY * colliderScales.y,
-      z: bounds.zSize + model.scaleZ * colliderScales.z
-    };
+  public function new(model : Object, size : Vector, ?parent : Object, sizeScale = true) {
+    if (sizeScale) {
+      var bounds = model.getBounds();
+      size = new Vector(
+        bounds.xSize + model.scaleX * size.x,
+        bounds.ySize + model.scaleY * size.y,
+        bounds.zSize + model.scaleZ * size.z
+      );
+    }
 
     super(size, parent);
 
@@ -23,13 +26,7 @@ class Collider extends BoxMesh {
     #end
   }
 
-  public function collided(obj : Object) : Bool {
-    return obj.getBounds().collide(this.getBounds());
+  public function collided(object : Object) : Bool {
+    return object.getBounds().collide(this.getBounds());
   }
-}
-
-typedef Scales = {
-  x : Float,
-  y : Float,
-  z : Float
 }

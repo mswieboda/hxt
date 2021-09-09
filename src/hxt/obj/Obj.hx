@@ -1,27 +1,28 @@
 package hxt.obj;
 
-import hxt.obj.Collider; // for Scales
-import hxt.obj.BoxMesh; // for Size
-
+import h3d.Vector;
 import h3d.mat.BlendMode;
 import h3d.scene.Object;
 
+
 class Obj extends Object {
-  var collider : Collider;
+  public var collider : Collider;
+
   var trigger : Trigger;
 
   public function new(
     model : Object,
-    ?colliderScales : Scales,
-    ?triggerSize : Size,
-    ?parent : Object
+    ?colliderSize : Vector,
+    ?triggerSize : Vector,
+    ?parent : Object,
+    colliderScale = true
   ) {
     super(parent);
 
     addChild(model);
 
-    if (colliderScales != null)
-      collider = new Collider(model, colliderScales, this);
+    if (colliderSize != null)
+      collider = new Collider(model, colliderSize, this, colliderScale);
 
     if (triggerSize != null)
       trigger = new Trigger(triggerSize, this);
@@ -29,13 +30,15 @@ class Obj extends Object {
 
   public function update(dt : Float) {}
 
-  public function collided(obj : Object) : Bool {
-    if (collider == null) return false;
-    return collider.collided(obj);
+  public function collided(obj : Obj) : Bool {
+    if (collider == null || obj.collider == null) return false;
+
+    return collider.collided(obj.collider);
   }
 
   public function triggered(obj : Object) : Bool {
-    if (trigger == null) return false;
-    return trigger.triggered(obj);
+    if (trigger == null || obj.collider == null) return false;
+
+    return trigger.triggered(obj.collider);
   }
 }
