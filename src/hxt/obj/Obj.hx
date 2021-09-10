@@ -6,8 +6,7 @@ import h3d.scene.Object;
 
 class Obj extends Object {
   public var collider : Collider;
-
-  var trigger : Trigger;
+  public var trigger : Trigger;
 
   public function new(
     model : Object,
