@@ -28,11 +28,10 @@ class MenuItem extends Object {
   ) {
     super(parent);
 
-    this.font = font == null ? DefaultFont.get() : font;
     this.color = color == null ? new Vector(1, 1, 1) : color;
     this.selectedColor = selectedColor == null ? new Vector(1, 0, 0) : selectedColor;
 
-    this.text = new Text(font, this);
+    this.text = new Text(font == null ? DefaultFont.get() : font, this);
     this.text.text = text;
     this.action = action;
 
