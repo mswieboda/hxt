@@ -2,7 +2,10 @@ package hxt.ui;
 
 import hxt.input.Input;
 
+import h2d.Font;
 import h2d.Object;
+import h3d.Vector;
+import hxd.res.DefaultFont;
 
 class Menu extends Object {
   var menuItems : Array<MenuItem>;
