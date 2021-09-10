@@ -21,8 +21,8 @@ class MenuItem extends Object {
     parent: Object,
     text : String,
     action : Void -> Void,
-    ?selectedColor : Int = 0xFF0000,
-    ?color : Int = 0xFFFFFF,
+    selectedColor : Int = 0xFF0000,
+    color : Int = 0xFFFFFF,
     ?font : Font
   ) {
     super(parent);
