@@ -9,6 +9,9 @@ class Menu extends Object {
   var menuItems : Array<MenuItem>;
   var selectedIndex : Int;
 
+  public var width(default, null) : Float;
+  public var height(default, null) : Float;
+
   public function new(
     parent: Object,
     items : Array<MenuItemData>,
@@ -34,6 +37,18 @@ class Menu extends Object {
       menuItems.push(menuItem);
 
       y += menuItem.height;
+    }
+
+    width = 0.0;
+    height = 0.0;
+
+    // sets width/height, only used for outside usage, positioning etc
+    for (menuItem in menuItems) {
+      if (menuItem.width > width) {
+        width = menuItem.width;
+      }
+
+      height += menuItem.height;
     }
 
     menuItems[0].select();

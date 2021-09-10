@@ -14,8 +14,8 @@ class MenuItem extends Object {
   var color : Int;
   var selectedColor : Int;
 
-  public var width(get, never) : Int;
-  public var height(get, never) : Int;
+  public var width(get, never) : Float;
+  public var height(get, never) : Float;
 
   public function new(
     parent: Object,
@@ -38,11 +38,11 @@ class MenuItem extends Object {
   }
 
   function get_width() {
-    return Std.int(text.textWidth);
+    return text.textWidth;
   }
 
   function get_height() {
-    return Std.int(text.textHeight);
+    return text.textHeight;
   }
 
   public function update(dt: Float) {
