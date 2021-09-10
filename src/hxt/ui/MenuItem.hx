@@ -22,14 +22,15 @@ class MenuItem extends Object {
     parent: Object,
     text : String,
     action : Void -> Void,
-    font : Font = DefaultFont.get(),
-    color : Vector = new Vector(1, 1, 1),
-    selectedColor : Vector = new Vector(1, 0, 0)
+    ?font : Font,
+    ?color : Vector,
+    ?selectedColor : Vector
   ) {
     super(parent);
 
-    this.color = color;
-    this.selectedColor = selectedColor;
+    this.font = font == null ? DefaultFont.get() : font;
+    this.color = color == null ? new Vector(1, 1, 1) : color;
+    this.selectedColor = selectedColor == null ? new Vector(1, 0, 0) : selectedColor;
 
     this.text = new Text(font, this);
     this.text.text = text;
