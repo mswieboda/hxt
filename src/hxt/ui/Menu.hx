@@ -26,7 +26,7 @@ class Menu extends Object {
     menuItems = [];
 
     for (item in items) {
-      var menuItem = new MenuItem(this, item.text, item.action, font, color, selectedColor);
+      var menuItem = new MenuItem(this, item.text, item.action, selectedColor, color, font);
 
       menuItem.x = width / 2 - menuItem.width / 2;
       menuItem.y = y;
