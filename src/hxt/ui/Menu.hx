@@ -15,7 +15,7 @@ class Menu extends Object {
   public function new(
     parent: Object,
     items : Array<MenuItemData>,
-    width: Int,
+    midX: Float,
     ?selectedColor : Int,
     ?color : Int,
     ?font : Font
@@ -31,7 +31,7 @@ class Menu extends Object {
     for (item in items) {
       var menuItem = new MenuItem(this, item.text, item.action, selectedColor, color, font);
 
-      menuItem.x = width / 2 - menuItem.width / 2;
+      menuItem.x = midX - menuItem.width / 2;
       menuItem.y = y;
 
       menuItems.push(menuItem);
