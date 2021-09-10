@@ -8,7 +8,14 @@ class Menu extends Object {
   var menuItems : Array<MenuItem>;
   var selectedIndex : Int;
 
-  public function new(parent: Object, items : Array<MenuItemData>, width: Int) {
+  public function new(
+    parent: Object,
+    items : Array<MenuItemData>,
+    width: Int,
+    font : Font = DefaultFont.get(),
+    color : Vector = new Vector(1, 1, 1),
+    selectedColor : Vector = new Vector(1, 0, 0)
+  ) {
     super(parent);
 
     selectedIndex = 0;
@@ -18,7 +25,7 @@ class Menu extends Object {
     menuItems = [];
 
     for (item in items) {
-      var menuItem = new MenuItem(this, item.text, item.action);
+      var menuItem = new MenuItem(this, item.text, item.action, color, selectedColor);
 
       menuItem.x = width / 2 - menuItem.width / 2;
       menuItem.y = y;

@@ -5,22 +5,37 @@ import hxt.input.Input;
 import h2d.Text;
 import h2d.Object;
 import h3d.Vector;
+import h2d.Font;
 import hxd.res.DefaultFont;
 
 class MenuItem extends Object {
   var text : Text;
   var selected : Bool = false;
   var action : Void -> Void;
+  var color : Vector;
+  var selectedColor : Vector;
 
   public var width(get, never) : Int;
   public var height(get, never) : Int;
 
-  public function new(parent: Object, text : String, action : Void -> Void) {
+  public function new(
+    parent: Object,
+    text : String,
+    action : Void -> Void,
+    font : Font = DefaultFont.get(),
+    color : Vector = new Vector(1, 1, 1),
+    selectedColor : Vector = new Vector(1, 0, 0)
+  ) {
     super(parent);
 
-    this.text = new Text(DefaultFont.get(), this);
+    this.color = color;
+    this.selectedColor = selectedColor;
+
+    this.text = new Text(font, this);
     this.text.text = text;
     this.action = action;
+
+    setColor();
   }
 
   function get_width() {
@@ -48,6 +63,6 @@ class MenuItem extends Object {
   }
 
   function setColor() {
-    text.color = selected ? new Vector(1, 0, 0, 1) : new Vector(1, 1, 1, 1);
+    text.color = selected ? selectedColor : color;
   }
 }
