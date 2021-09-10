@@ -4,7 +4,6 @@ import hxt.input.Input;
 
 import h2d.Text;
 import h2d.Object;
-import h3d.Vector;
 import h2d.Font;
 import hxd.res.DefaultFont;
 
@@ -12,8 +11,8 @@ class MenuItem extends Object {
   var text : Text;
   var selected : Bool = false;
   var action : Void -> Void;
-  var color : Vector;
-  var selectedColor : Vector;
+  var color : Int;
+  var selectedColor : Int;
 
   public var width(get, never) : Int;
   public var height(get, never) : Int;
@@ -22,14 +21,14 @@ class MenuItem extends Object {
     parent: Object,
     text : String,
     action : Void -> Void,
-    ?font : Font,
-    ?color : Vector,
-    ?selectedColor : Vector
+    ?selectedColor : Int = 0xFF0000,
+    ?color : Int = 0xFFFFFF,
+    ?font : Font
   ) {
     super(parent);
 
-    this.color = color == null ? new Vector(1, 1, 1) : color;
-    this.selectedColor = selectedColor == null ? new Vector(1, 0, 0) : selectedColor;
+    this.color = color;
+    this.selectedColor = selectedColor;
 
     this.text = new Text(font == null ? DefaultFont.get() : font, this);
     this.text.text = text;
@@ -63,6 +62,6 @@ class MenuItem extends Object {
   }
 
   function setColor() {
-    text.color = selected ? selectedColor : color;
+    text.textColor = selected ? selectedColor : color;
   }
 }

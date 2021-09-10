@@ -21,7 +21,7 @@ class MenuScene extends Scene {
       action: () -> System.exit()
     }];
 
-    menu = new Menu(s2d, menuItemData, s2d.width, null, null, new Vector(0, 1, 0));
+    menu = new Menu(s2d, menuItemData, s2d.width, 0x00FF00);
     menu.y = s2d.height / 3;
   }
 
