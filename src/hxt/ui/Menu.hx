@@ -24,7 +24,7 @@ class Menu extends Object {
 
     selectedIndex = 0;
 
-    var y = 0;
+    var y = 0.0;
 
     menuItems = [];
 
