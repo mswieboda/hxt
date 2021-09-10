@@ -3,6 +3,7 @@ import hxt.scene.Stage;
 import hxt.scene.Scene;
 import hxt.ui.Menu;
 
+import h3d.Vector;
 import hxd.System;
 
 class MenuScene extends Scene {
@@ -20,7 +21,7 @@ class MenuScene extends Scene {
       action: () -> System.exit()
     }];
 
-    menu = new Menu(s2d, menuItemData, s2d.width);
+    menu = new Menu(s2d, menuItemData, s2d.width, null, null, new Vector(0, 1, 0));
     menu.y = s2d.height / 3;
   }
 
