@@ -1,22 +1,21 @@
-package hxt.obj;
+package hxt.obj2d;
 
-import h3d.Vector;
-import h3d.mat.BlendMode;
-import h3d.scene.Object;
+import h2d.col.Point;
+import h2d.Object;
 
 class Obj extends Object {
   public var collider : Collider;
   public var trigger : Trigger;
 
   public function new(
-    model : Object,
-    ?colliderSize : Vector,
-    ?triggerSize : Vector,
+    sprite : Object,
+    ?colliderSize : Point,
+    ?triggerSize : Point,
     ?parent : Object
   ) {
     super(parent);
 
-    addChild(model);
+    addChild(sprite);
 
     if (colliderSize != null)
       collider = new Collider(colliderSize, this);

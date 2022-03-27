@@ -1,4 +1,4 @@
-package hxt.obj;
+package hxt.obj3d;
 
 import h3d.Vector;
 import h3d.mat.BlendMode;
